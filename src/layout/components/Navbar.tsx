@@ -44,13 +44,6 @@ const Navbar = () => {
     setAnchorEl(null);
   };
 
-  // const logout = () => {
-  //   localStorage.removeItem("access_token");
-  //   localStorage.removeItem("code_verifier");
-  //   queryClient.removeQueries({ queryKey: ["current-user-profile"] });
-  //   queryClient.clear();
-  //   handleMenuClose();
-  // };
   const logout = () => {
   localStorage.removeItem("access_token");
   localStorage.removeItem("refresh_token");
