@@ -44,12 +44,21 @@ const Navbar = () => {
     setAnchorEl(null);
   };
 
+  // const logout = () => {
+  //   localStorage.removeItem("access_token");
+  //   localStorage.removeItem("code_verifier");
+  //   queryClient.removeQueries({ queryKey: ["current-user-profile"] });
+  //   queryClient.clear();
+  //   handleMenuClose();
+  // };
   const logout = () => {
-    localStorage.removeItem("access_token");
-    queryClient.removeQueries({ queryKey: ["current-user-profile"] });
-    queryClient.clear();
-    handleMenuClose();
-  };
+  localStorage.removeItem("access_token");
+  localStorage.removeItem("refresh_token");
+  localStorage.removeItem("code_verifier");
+  sessionStorage.clear();
+  queryClient.removeQueries({ queryKey: ["current-user-profile"] });
+  window.location.href = "/";
+};
   return (
     <Box display='flex' justifyContent="flex-end" alignItems="center" height="64px">
       {isLoading || userProfile ? (
