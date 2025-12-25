@@ -1,19 +1,3 @@
-// import Box from '@mui/material/Box'
-// import LoginButton from '../../common/components/LoginButton'
-// import useGetCurrentUserProfile from '../../hooks/useGetCurrentUserProfile'
-
-// const Navbar = () => {
-//   const {data:userProfile} = useGetCurrentUserProfile()
-//   return (
-//     <Box display='flex' justifyContent="flex-end" alignItems="center" height="64px">
-//       {userProfile? userProfile.display_name:<LoginButton/>}
-//       {/* {userProfile?<img src={userProfile.images[0]?.url}/>:<LoginButton/>}       */}
-//     </Box>
-//   )
-// }
-
-// export default Navbar
-
 import {
   Avatar,
   Box,
@@ -51,7 +35,6 @@ const Navbar = () => {
   const {data:userProfile, isLoading} = useGetCurrentUserProfile()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const queryClient = useQueryClient();
-  // const open = Boolean(anchorEl);
 
   const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -64,7 +47,6 @@ const Navbar = () => {
   const logout = () => {
     localStorage.removeItem("access_token");
     queryClient.removeQueries({ queryKey: ["current-user-profile"] });
-    // window.location.reload();
     queryClient.clear();
     handleMenuClose();
   };
